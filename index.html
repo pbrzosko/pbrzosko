@@ -1,12 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size: 12px;">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Przemyslaw Brzosko CV</title>
   </head>
-  <body class="font-sans bg-gray-100">
-    <div id="cv">CV</div>
+  <body class="font-sans antialiased bg-gray-100">
+    <div id="cv" class="w-[210mm] h-[297mm] p-[12.7mm] bg-white mx-auto my-8 shadow-lg text-gray-600 flex flex-col gap-2">
+      <div class="flex items-end gap-4">
+        <span class="text-4xl font-semibold text-primary">Przemysław Brzosko</span>
+        <span class="text-2xl text-gray-600">Java / JavaScript Developer</span>
+      </div>
+      <div>
+        Master of Science in Teleinformatics and management in telecommunication. Has over 16 years of experience as a Java and JavaScript developer. Prefers working on a graphical user interface.
+      </div>
+      <div class="flex">
+        <div class="flex flex-col bg-gray-200 basis-2/6 p-2 gap-2 text-right">
+          <img src="przemek.jpg" class="w-3/5 self-center"/>
+          <skill-section label="Personal data">
+            <span class="font-bold">608-289-033</span>
+            <span>przemek.brzosko@gmail.com</span>
+          </skill-section>
+          <skill-section label="IT Tools">
+            <skill v-for="s,index in skills" :key="index" :label="s.label" :value="s.value"/>
+          </skill-section>
+          <skill-section label="IT Knowledge">
+            <span>IntelliJ / GIT / JIRA / Azure Devops</span>
+            <span>Work alone and in teams</span>
+            <span>Design patterns</span>
+            <span>Scrum methodology</span>
+            <span>Unit and e2e tests</span>
+            <span>Graphics editors</span>
+          </skill-section>
+          <skill-section label="Certificates">
+            <span>Sun Certified Programmer for Java 2 Platform, Standard Edition 6.0</span>
+          </skill-section>
+          <skill-section label="Languages">
+            <skill v-for="l,index in languages" :key="index" :label="l.label" :value="l.value"/>
+          </skill-section>
+        </div>
+        <div class="flex flex-col basis-4/6 p-2">
+          <skill-section label="Experience">
+            <experience v-for="e,index in experience" :key="index" :exp="e"/>
+          </skill-section>
+        </div>
+      </div>
+
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: 'royalblue'
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="text/javascript">
+      const App = {
+        data() {
+          return {
+            skills: [
+              {
+                label: 'VUeJS / Bootstrap',
+                value: 5
+              },
+              {
+                label: 'Angular 12 / Material',
+                value: 3
+              },
+              {
+                label: 'HTML / CSS / JavaScript',
+                value: 5
+              },
+              {
+                label: 'Java / Spring / JSF',
+                value: 5
+              },
+              {
+                label: 'NodeJS / ExpressJS / MongoDB',
+                value: 3
+              },
+              {
+                label: 'SQL / Hibernate / Oracle',
+                value: 2
+              },
+              {
+                label: 'C / C++ / Qt',
+                value: 2
+              }
+            ],
+            languages: [
+              {
+                label: 'angielski',
+                value: 5
+              },
+              {
+                label: 'niemiecki',
+                value: 2
+              }
+            ],
+            experience: [
+              {
+                from: '2019.03',
+                to: 'today',
+                company: 'SDC A/S Polska',
+                position: 'Senior Developer',
+                responsibilities: [
+                  'One man team for all frontend applications in VueJS for whole advisory credit and banking department',
+                  'Implementation of credit processes using Java, Spring and Camunda',
+                  'Maintaining legacy systems'
+                ]
+              },
+              {
+                from: '2012.04',
+                to: '2019.03',
+                company: 'CoCoNet Polska',
+                position: 'Area Expert, Scrum Master, Senior Systems Developer',
+                responsibilities: [
+                  'Defining direction of evolution, consulting and code review in UI area',
+                  'Leadership of maintenance team in UI area',
+                  'Maintaining and development of huge financial application'
+                ]
+              }
+            ]
+          }
+        }
+      };
+      const app = Vue.createApp(App);
+      app.component('skill-section', {
+        template: `
+          <div>
+            <div class="text-primary font-bold border-b-2 border-b-gray-300 text-2xl">{{label}}</div>
+            <div class="flex flex-col gap-2 py-2">
+              <slot/>
+            </div>
+          </div>
+        `,
+        props: ['label']
+      });
+      app.component('skill', {
+        template: `
+          <div class="flex justify-between">
+            <span class="text-left">{{label}}</span>
+            <span class="flex gap-1 text-primary"><star v-for="i in 5" :key="i" :fill="i <= value"></star></span>
+          </div>
+        `,
+        props: ['label', 'value']
+      });
+      app.component('star', {
+        template: `
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current stroke-0 h-5 w-5" viewBox="0 0 24 24" :class="{'fill-current': fill, 'fill-transparent': !fill}">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+          </svg>
+        `,
+        props: ['fill']
+      });
+      app.component('experience', {
+        template: `
+          <div class="flex gap-2">
+            <div class="w-1/5 font-bold text-xl text-black">
+              {{exp.from}} - {{exp.to}}
+            </div>
+            <div class="w-4/5 flex flex-col">
+              <span class="text-xl font-bold text-black">{{exp.company}}</span>
+              <span class="font-italic">{{exp.position}}</span>
+              <ul class="list-disc"><span class="font-bold">Responsibilities:</span>
+                <li class="ml-5" v-for="r,index in exp.responsibilities" :key="index">{{r}}</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        props: ['exp']
+      });
+      app.mount('#cv');
+    </script>
   </body>
 </html>
