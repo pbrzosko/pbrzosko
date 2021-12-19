@@ -3,12 +3,12 @@ const App = {
       <cv>
       <cv-title :me="cv.me"></cv-title>
       <cv-subtitle :me="cv.me"></cv-subtitle>
-      <div class="flex">
+      <div class="flex grow">
         <cv-column-left :me="cv.me" :skills="cv.skills" :knowledge="cv.knowledge" :certificates="cv.certificates" :languages="cv.languages"/>
         <cv-column-right :experience="cv.experience" :education="cv.education" :project="cv.project" :interests="cv.interests" :rights="cv.rights"/>
       </div>
       </cv>
-      <language @lang="setLang"/>
+      <language @lang="setLang" class="print:hidden"/>
     `,
   data() {
     return {
@@ -37,7 +37,7 @@ const formatYearMonth = function (value) {
 };
 app.component('cv-column-left', {
   template: `
-    <div class="flex flex-col bg-gray-200 basis-2/6 p-2 gap-2 text-right">
+    <div class="flex flex-col bg-lightgray basis-2/6 p-2 gap-2 text-right">
           <avatar/>
           <skill-section :label="me.label">
             <span class="font-bold">{{me.phone}}</span>
@@ -74,7 +74,7 @@ app.component('cv-column-right', {
           <skill-section :label="interests.label">
             <span>{{interests.list.join(', ')}}</span>
           </skill-section>
-          <div class="text-center text-sm mt-2">
+          <div class="text-center text-sm mt-2 flex grow items-end">
             {{rights}}
           </div>
         </div>
@@ -83,7 +83,7 @@ app.component('cv-column-right', {
 });
 app.component('cv', {
   template: `
-    <div class="w-[210mm] h-[297mm] p-[12mm] bg-white mx-auto my-8 shadow-lg text-gray-600 flex flex-col gap-2 print:p-0 print:m-0 print:shadow-none">
+    <div class="w-[210mm] h-[297mm] p-[12mm] bg-white mx-auto my-8 shadow-lg text-gray flex flex-col gap-2 print:p-0 print:m-0 print:shadow-none">
       <slot/>
     </div>
   `
@@ -95,9 +95,9 @@ app.component('avatar', {
 });
 app.component('cv-title', {
   template: `
-          <div class="flex items-end gap-4">
-            <span class="text-4xl font-semibold text-primary">{{me.name}}</span>
-            <span class="text-2xl text-gray-600">{{me.position}}</span>
+          <div class="flex items-end gap-4 font-semibold">
+            <span class="text-4xl text-primary">{{me.name}}</span>
+            <span class="text-2xl text-darkgray">{{me.position}}</span>
           </div>
     `,
   props: ['me']
@@ -109,7 +109,7 @@ app.component('cv-subtitle', {
 app.component('skill-section', {
   template: `
       <div>
-      <div class="text-primary font-bold border-b-2 border-b-gray-300 text-2xl">{{ label }}</div>
+      <div class="text-primary font-bold border-b-2 border-b-bordergray text-2xl">{{ label }}</div>
       <div class="flex flex-col gap-2 py-2">
         <slot/>
       </div>
@@ -160,13 +160,13 @@ app.component('en-flag', {
 app.component('experience', {
   template: `
       <div class="flex gap-2">
-      <div class="w-1/5 font-bold text-xl text-black">
+      <div class="w-1/5 font-bold text-xl text-darkgray">
         {{ formatDate(exp.from) }} - {{ formatDate(exp.to) }}
       </div>
       <div class="w-4/5 flex flex-col">
-        <span class="text-xl font-bold text-black">{{ exp.company }}</span>
+        <span class="text-xl font-bold text-darkgray">{{ exp.company }}</span>
         <span class="font-italic">{{ exp.position }}</span>
-        <ul class="list-disc"><span class="font-bold">{{label}}:</span>
+        <ul class="list-disc"><span class="font-bold text-darkgray">{{label}}:</span>
           <li class="ml-5" v-for="r,index in exp.responsibilities" :key="index">{{ r }}</li>
         </ul>
       </div>
@@ -182,11 +182,11 @@ app.component('experience', {
 app.component('education', {
   template: `
       <div class="flex gap-2">
-      <div class="w-1/5 font-bold text-xl text-black">
+      <div class="w-1/5 font-bold text-xl text-darkgray">
         {{ formatDate(edu.from) }} - {{ formatDate(edu.to) }}
       </div>
       <div class="w-4/5 flex flex-col">
-        <span class="text-xl font-bold text-black">{{edu.university}}</span>
+        <span class="text-xl font-bold text-darkgray">{{edu.university}}</span>
         <template v-for="t,index in edu.titles" :key="index">
           <span class="font-bold">{{t.title}}</span>
           <span>{{t.area}}</span> 
@@ -204,11 +204,11 @@ app.component('education', {
 app.component('project', {
   template: `
       <div class="flex gap-2">
-      <div class="w-1/5 font-bold text-xl text-black">
+      <div class="w-1/5 font-bold text-xl text-darkgray">
         {{project.year}}
       </div>
       <div class="w-4/5 flex flex-col">
-        <span class="text-xl font-bold text-black">{{project.link}}</span>
+        <span class="text-xl font-bold text-darkgray">{{project.link}}</span>
         <span>{{project.description}}</span>
       </div>
       </div>
