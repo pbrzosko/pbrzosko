@@ -76,6 +76,7 @@ CV.pl = {
         from: new Date(2019, 3),
         to: null,
         company: 'SDC A/S Polska',
+        companyLink: 'https://www.sdc.dk/',
         position: 'Starszy Programista',
         responsibilities: [
           'Samodzielna implementacja wszystkich aplikacji front-end w VueJS dla całego departamentu doradztwa kredytowego',
@@ -87,6 +88,7 @@ CV.pl = {
         from: new Date(2012, 4),
         to: new Date(2019, 3),
         company: 'CoCoNet Polska',
+        companyLink: 'https://www.coconet.de/',
         position: 'Area Expert, Scrum Master, Starszy Programista',
         responsibilities: [
           'Wyznaczanie kierunku rozwoju, doradztwo oraz ocena kodu w obszarze UI',
@@ -98,6 +100,7 @@ CV.pl = {
         from: new Date(2011, 9),
         to: new Date(2012, 4),
         company: 'IMPAQ Group',
+        companyLink: 'http://www.impaq.com.pl/',
         position: 'Programista',
         responsibilities: [
           'Wdrożenie i implementacja systemu rozliczeń użytkowników Pre-Paid dla operatora telefonii komórkowej'
@@ -107,6 +110,7 @@ CV.pl = {
         from: new Date(2005, 9),
         to: new Date(2011, 9),
         company: 'Pentacomp Systemy Informatyczne',
+        companyLink: 'https://www.pentacomp.pl/',
         position: 'Programista',
         responsibilities: [
           'Implementacja systemu do obsługi produktów sprzedażowych dla firmy ubezpieczeniowej',
@@ -123,6 +127,7 @@ CV.pl = {
         from: new Date(2002, 10),
         to: new Date(2007, 6),
         university: 'Politechnika Warszawska',
+        universityLink: 'https://www.elka.pw.edu.pl/',
         titles: [
           {
             area: 'Teleinformatyka i zarządzanie w telekomunikacji',
@@ -138,6 +143,7 @@ CV.pl = {
   },
   project: {
     label: 'https://github.com/pbrzosko',
+    labelLink: 'https://github.com/pbrzosko',
     list: [
       {
         year: 2021,

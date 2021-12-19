@@ -61,14 +61,14 @@ app.component('cv-column-left', {
 });
 app.component('cv-column-right', {
   template: `
-    <div class="flex flex-col basis-4/6 p-2">
+    <div class="flex flex-col basis-4/6 px-2">
           <skill-section :label="experience.label">
             <experience v-for="e,index in experience.list" :key="index" :exp="e" :label="experience.responsibilites"/>
           </skill-section>
           <skill-section :label="education.label">
             <education v-for="e, index in education.list" :key="index" :edu="e"/>
           </skill-section>
-          <skill-section :label="project.label">
+          <skill-section :label="project.label" :labelLink="project.label">
             <project v-for="p,index in project.list" :key="index" :project="p"/>
           </skill-section>
           <skill-section :label="interests.label">
@@ -109,13 +109,13 @@ app.component('cv-subtitle', {
 app.component('skill-section', {
   template: `
       <div>
-      <div class="text-primary font-bold border-b-2 border-b-bordergray text-2xl">{{ label }}</div>
+      <a class="text-primary font-bold border-b-2 border-b-bordergray text-2xl block pb-2 mb-2" :href="labelLink" target="_blank">{{ label }}</a>
       <div class="flex flex-col gap-2 py-2">
         <slot/>
       </div>
       </div>
     `,
-  props: ['label']
+  props: ['label', 'labelLink']
 });
 app.component('skill', {
   template: `
@@ -164,7 +164,7 @@ app.component('experience', {
         {{ formatDate(exp.from) }} - {{ formatDate(exp.to) }}
       </div>
       <div class="w-4/5 flex flex-col">
-        <span class="text-xl font-bold text-darkgray">{{ exp.company }}</span>
+        <a class="text-xl font-bold text-darkgray" :href="exp.companyLink" target="_blank">{{ exp.company }}</a>
         <span class="font-italic">{{ exp.position }}</span>
         <ul class="list-disc"><span class="font-bold text-darkgray">{{label}}:</span>
           <li class="ml-5" v-for="r,index in exp.responsibilities" :key="index">{{ r }}</li>
@@ -172,7 +172,7 @@ app.component('experience', {
       </div>
       </div>
     `,
-  props: ['exp', 'label'],
+  props: ['exp', 'label', 'link'],
   methods: {
     formatDate(value) {
       return formatYearMonth(value);
@@ -186,7 +186,7 @@ app.component('education', {
         {{ formatDate(edu.from) }} - {{ formatDate(edu.to) }}
       </div>
       <div class="w-4/5 flex flex-col">
-        <span class="text-xl font-bold text-darkgray">{{edu.university}}</span>
+        <a class="text-xl font-bold text-darkgray" :href="edu.universityLink" target="_blank">{{edu.university}}</a>
         <template v-for="t,index in edu.titles" :key="index">
           <span class="font-bold">{{t.title}}</span>
           <span>{{t.area}}</span> 
@@ -208,7 +208,7 @@ app.component('project', {
         {{project.year}}
       </div>
       <div class="w-4/5 flex flex-col">
-        <span class="text-xl font-bold text-darkgray">{{project.link}}</span>
+        <a class="text-xl font-bold text-darkgray" :href="project.link" target="_blank">{{project.link}}</a>
         <span>{{project.description}}</span>
       </div>
       </div>

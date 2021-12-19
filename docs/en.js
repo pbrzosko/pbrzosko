@@ -76,6 +76,7 @@ CV.en = {
         from: new Date(2019, 3),
         to: null,
         company: 'SDC A/S Polska',
+        companyLink: 'https://www.sdc.dk/',
         position: 'Senior Developer',
         responsibilities: [
           'One man team for all frontend applications in VueJS for whole advisory credit and banking department',
@@ -87,6 +88,7 @@ CV.en = {
         from: new Date(2012, 4),
         to: new Date(2019, 3),
         company: 'CoCoNet Polska',
+        companyLink: 'https://www.coconet.de/',
         position: 'Area Expert, Scrum Master, Senior Systems Developer',
         responsibilities: [
           'Defining direction of evolution, consulting and code review in UI area',
@@ -98,6 +100,7 @@ CV.en = {
         from: new Date(2011, 9),
         to: new Date(2012, 4),
         company: 'IMPAQ Group',
+        companyLink: 'http://www.impaq.com.pl/',
         position: 'Developer',
         responsibilities: [
           'Implementation and installation of billing system for Prepaid users of a mobile operator'
@@ -107,6 +110,7 @@ CV.en = {
         from: new Date(2005, 9),
         to: new Date(2011, 9),
         company: 'Pentacomp Systemy Informatyczne',
+        companyLink: 'https://www.pentacomp.pl/',
         position: 'Developer',
         responsibilities: [
           'Implementation of a system to manage sales products for insurance company',
@@ -123,6 +127,7 @@ CV.en = {
         from: new Date(2002, 10),
         to: new Date(2007, 6),
         university: 'Warsaw University of Technology',
+        universityLink: 'https://www.elka.pw.edu.pl/',
         titles: [
           {
             area: 'Teleinformatics and management in telecommunication',
