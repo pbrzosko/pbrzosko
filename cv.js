@@ -1,174 +1,30 @@
 const App = {
   template: `
       <cv>
-      <cv-title :me="me"></cv-title>
-      <cv-subtitle :me="me"></cv-subtitle>
+      <cv-title :me="cv.me"></cv-title>
+      <cv-subtitle :me="cv.me"></cv-subtitle>
       <div class="flex">
-        <cv-column-left :me="me" :skills="skills" :knowledge="knowledge" :certificates="certificates" :languages="languages"/>
-        <cv-column-right :experience="experience" :education="education" :project="project" :interests="interests" :rights="rights"/>
+        <cv-column-left :me="cv.me" :skills="cv.skills" :knowledge="cv.knowledge" :certificates="cv.certificates" :languages="cv.languages"/>
+        <cv-column-right :experience="cv.experience" :education="cv.education" :project="cv.project" :interests="cv.interests" :rights="cv.rights"/>
       </div>
       </cv>
+      <language @lang="setLang"/>
     `,
   data() {
     return {
-      me: {
-        name: 'Przemysław Brzosko',
-        position: 'Java / JavaScript Developer',
-        description: 'Master of Science in Teleinformatics and management in telecommunication. Has over 16 years of experience as a Java and JavaScript developer. Prefers working on a graphical user interface.',
-        phone: '+48 608-289-033',
-        email: 'przemek.brzosko@gmail.com',
-        label: 'Personal data'
-      },
-      certificates: {
-        label: 'Certificates',
-        list: [
-          'Sun Certified Programmer for Java 2 Platform, Standard Edition 6.0'
-        ]
-      },
-      skills: {
-        label: 'IT Tools',
-        list: [{
-          label: 'VUeJS / Bootstrap',
-          value: 5
-        },
-          {
-            label: 'Angular 12 / Material',
-            value: 3
-          },
-          {
-            label: 'HTML / CSS / JavaScript',
-            value: 5
-          },
-          {
-            label: 'Java / Spring / JSF',
-            value: 5
-          },
-          {
-            label: 'NodeJS / ExpressJS / MongoDB',
-            value: 3
-          },
-          {
-            label: 'SQL / Hibernate / Oracle',
-            value: 2
-          },
-          {
-            label: 'C / C++ / Qt',
-            value: 2
-          }]
-      },
-      knowledge: {
-        label: 'IT Knowledge',
-        list: [
-          'IntelliJ / GIT / JIRA / Azure Devops',
-          'Work alone and in teams',
-          'Design patterns',
-          'Scrum methodology',
-          'Unit and e2e tests',
-          'Graphics editors'
-        ]
-      },
-      languages: {
-        label: 'Languages',
-        list: [
-          {
-            label: 'angielski',
-            value: 5
-          },
-          {
-            label: 'niemiecki',
-            value: 2
-          }
-        ]
-      },
-      experience: {
-        label: 'Experience',
-        list: [
-          {
-            from: new Date(2019, 3),
-            to: null,
-            company: 'SDC A/S Polska',
-            position: 'Senior Developer',
-            responsibilities: [
-              'One man team for all frontend applications in VueJS for whole advisory credit and banking department',
-              'Implementation of credit processes using Java, Spring and Camunda',
-              'Maintaining legacy systems'
-            ]
-          },
-          {
-            from: new Date(2012, 4),
-            to: new Date(2019, 3),
-            company: 'CoCoNet Polska',
-            position: 'Area Expert, Scrum Master, Senior Systems Developer',
-            responsibilities: [
-              'Defining direction of evolution, consulting and code review in UI area',
-              'Leadership of maintenance team in UI area',
-              'Maintaining and development of huge financial application'
-            ]
-          },
-          {
-            from: new Date(2011, 9),
-            to: new Date(2012, 4),
-            company: 'IMPAQ Group',
-            position: 'Developer',
-            responsibilities: [
-              'Implementation and installation of billing system for Prepaid users of a mobile operator'
-            ]
-          },
-          {
-            from: new Date(2005, 9),
-            to: new Date(2011, 9),
-            company: 'Pentacomp Systemy Informatyczne',
-            position: 'Developer',
-            responsibilities: [
-              'Implementation of a system to manage sales products for insurance company',
-              'Development and maintenance of a warehouse system for a mobile operator',
-              'Customization and installation of a Business Intelligence system for a mobile operator'
-            ]
-          }
-        ]
-      },
-      education: {
-        label: 'Education',
-        list: [
-          {
-            from: new Date(2002, 10),
-            to: new Date(2007, 6),
-            university: 'Warsaw University of Technology',
-            titles: [
-              {
-                area: 'Teleinformatics and management in telecommunication',
-                title: 'Master of science'
-              },
-              {
-                area: 'Informatics, Electronics and Telecommunications',
-                title: 'Bachelor of science'
-              }
-            ]
-          }
-        ]
-      },
-      project: {
-        label: 'https://github.com/pbrzosko',
-        list: [
-          {
-            year: 2021,
-            link: 'https://pbrzosko.github.io/invoice-angular/',
-            description: 'Invoice management app written in Angular'
-          }
-        ]
-      },
-      interests: {
-        label: 'Interests',
-        list: [
-          'New technologies',
-          'UI design',
-          'SPA frameworks',
-          'tennis',
-          'motorsports'
-        ]
-      },
-      rights: 'I hereby give consent for my personal data to be processed for the purpose of conducting recruitment for the position for which I am applying'
+      lang: localStorage.getItem('cv_language') || 'en'
     };
+  },
+  methods: {
+    setLang(lang) {
+      this.lang = lang;
+      localStorage.setItem('cv_language', lang);
+    }
+  },
+  computed: {
+    cv() {
+      return this.lang === 'pl' ? CV.pl : CV.en;
+    }
   }
 };
 const app = Vue.createApp(App);
@@ -207,7 +63,7 @@ app.component('cv-column-right', {
   template: `
     <div class="flex flex-col basis-4/6 p-2">
           <skill-section :label="experience.label">
-            <experience v-for="e,index in experience.list" :key="index" :exp="e"/>
+            <experience v-for="e,index in experience.list" :key="index" :exp="e" :label="experience.responsibilites"/>
           </skill-section>
           <skill-section :label="education.label">
             <education v-for="e, index in education.list" :key="index" :edu="e"/>
@@ -280,6 +136,27 @@ app.component('star', {
     `,
   props: ['fill']
 });
+app.component('pl-flag', {
+  template: `
+    <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-pl" viewBox="0 0 640 480" class="h-8 w-8">
+      <g fill-rule="evenodd">
+        <path fill="#fff" d="M640 480H0V0h640z"/>
+        <path fill="#dc143c" d="M640 480H0V240h640z"/>
+      </g>
+    </svg>
+  `
+});
+app.component('en-flag', {
+  template: `
+    <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-gb" viewBox="0 0 640 480" class="h-8 w-8">
+      <path fill="#012169" d="M0 0h640v480H0z"/>
+      <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"/>
+      <path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z"/>
+      <path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z"/>
+      <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z"/>
+    </svg>
+  `
+});
 app.component('experience', {
   template: `
       <div class="flex gap-2">
@@ -289,13 +166,13 @@ app.component('experience', {
       <div class="w-4/5 flex flex-col">
         <span class="text-xl font-bold text-black">{{ exp.company }}</span>
         <span class="font-italic">{{ exp.position }}</span>
-        <ul class="list-disc"><span class="font-bold">Responsibilites:</span>
+        <ul class="list-disc"><span class="font-bold">{{label}}:</span>
           <li class="ml-5" v-for="r,index in exp.responsibilities" :key="index">{{ r }}</li>
         </ul>
       </div>
       </div>
     `,
-  props: ['exp'],
+  props: ['exp', 'label'],
   methods: {
     formatDate(value) {
       return formatYearMonth(value);
@@ -337,5 +214,13 @@ app.component('project', {
       </div>
     `,
   props: ['project']
+});
+app.component('language', {
+  template: `
+    <div class="flex gap-4 fixed top-4 right-4">
+      <pl-flag @click="$emit('lang', 'pl')" class="cursor-pointer"/>
+      <en-flag @click="$emit('lang', 'en')" class="cursor-pointer"/>
+    </div>
+  `
 });
 app.mount('#cv');
