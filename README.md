@@ -5,6 +5,8 @@ I started my career as a Java developer, but I quickly specialized myslef in **U
 
 ### Career
 
+You can read or download my CV here: https://pbrzosko.github.io/pbrzosko/
+
 I have started in 2005, working with **Java Swing** app. I wrote my first UI feature of a progress indicator. It was implemented as a custom event queue
 class, which painted an animation in the window if some event took to long to handle. Then I switched towards web applications written in
 **Java Server Faces**. I quickly gained experience in the framework as well as web technologies like **HTML, CSS** and **JavaScript**.
@@ -27,7 +29,7 @@ If you consider hiring me as a developer, here are my features:
 - Everyone always praised me as a someone that it is nice to work with. It is simply because I tend not to be in conflict with others. I'd rather
 try to solve problems, not create new ones.
 - I am also able to work efficiently without supervision, because I always try to organize my work efficiently and focus on the task.
-- My father always told me _"do something good, or not do it at all"_. I commit to this motto all the time. Of course, in software development there
+- My father always told me _"do something good, or do not do it at all"_. I commit to this motto all the time. Of course, in software development there
 are budgets and timelines, so I always try to select a solution that is the best from technical aspect, but it also fits into project limitations.
 - I don't like wasting time on nothing: meetings - keep it short and concise, solutions - make a Proof Of Concept and evaluate it instead of hours of divagations.
 
