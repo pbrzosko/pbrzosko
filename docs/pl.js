@@ -16,7 +16,7 @@ CV.pl = {
   skills: {
     label: 'Narzędzia IT',
     list: [{
-      label: 'VUeJS / Bootstrap',
+      label: 'VueJS / Bootstrap / Tailwind',
       value: 5
     },
       {
@@ -70,6 +70,7 @@ CV.pl = {
   },
   experience: {
     label: 'Doświadczenie',
+    today: 'dziś',
     responsibilites: 'Zakres obowiązków',
     list: [
       {
@@ -162,5 +163,10 @@ CV.pl = {
       'motoryzacja'
     ]
   },
-  rights: 'Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia rekrutacji na aplikowane przeze mnie stanowisko.'
+  rights: 'Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia rekrutacji na aplikowane przeze mnie stanowisko.',
+  hints: [
+    'Możesz zmienić język używając flag po prawej.',
+    'Aby zapisać CV jako PDF, wydrukuj stronę do PDF.',
+    'Nazwy firm i uczelni są linkami i prowadzą do ich stron WWW.'
+  ]
 };

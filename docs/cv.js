@@ -1,14 +1,14 @@
 const App = {
   template: `
+      <language @lang="setLang" class="print:hidden" :hints="cv.hints"/>
       <cv>
-      <cv-title :me="cv.me"></cv-title>
-      <cv-subtitle :me="cv.me"></cv-subtitle>
-      <div class="flex grow">
-        <cv-column-left :me="cv.me" :skills="cv.skills" :knowledge="cv.knowledge" :certificates="cv.certificates" :languages="cv.languages"/>
-        <cv-column-right :experience="cv.experience" :education="cv.education" :project="cv.project" :interests="cv.interests" :rights="cv.rights"/>
-      </div>
+        <cv-title :me="cv.me"></cv-title>
+        <cv-subtitle :me="cv.me"></cv-subtitle>
+        <div class="flex grow">
+          <cv-column-left :me="cv.me" :skills="cv.skills" :knowledge="cv.knowledge" :certificates="cv.certificates" :languages="cv.languages"/>
+          <cv-column-right :experience="cv.experience" :education="cv.education" :project="cv.project" :interests="cv.interests" :rights="cv.rights"/>
+        </div>
       </cv>
-      <language @lang="setLang" class="print:hidden"/>
     `,
   data() {
     return {
@@ -30,7 +30,7 @@ const App = {
 const app = Vue.createApp(App);
 
 const formatYearMonth = function (value) {
-  if (!value) return 'today';
+  if (!value) return null;
   const month = ('0' + value.getMonth()).slice(-2);
   const year = ('000' + value.getFullYear()).slice(-4);
   return `${year}.${month}`;
@@ -63,7 +63,7 @@ app.component('cv-column-right', {
   template: `
     <div class="flex flex-col basis-4/6 px-2">
           <skill-section :label="experience.label">
-            <experience v-for="e,index in experience.list" :key="index" :exp="e" :label="experience.responsibilites"/>
+            <experience v-for="e,index in experience.list" :key="index" :exp="e" :today="experience.today" :label="experience.responsibilites"/>
           </skill-section>
           <skill-section :label="education.label">
             <education v-for="e, index in education.list" :key="index" :edu="e"/>
@@ -83,7 +83,7 @@ app.component('cv-column-right', {
 });
 app.component('cv', {
   template: `
-    <div class="w-[210mm] h-[297mm] p-[12mm] bg-white mx-auto my-8 shadow-lg text-gray flex flex-col gap-2 print:p-0 print:m-0 print:shadow-none">
+    <div class="w-[210mm] h-[297mm] p-[12mm] bg-white mx-auto mt-[10em] mb-[3em] shadow-lg text-gray flex flex-col gap-2 print:p-0 print:m-0 print:shadow-none">
       <slot/>
     </div>
   `
@@ -103,7 +103,7 @@ app.component('cv-title', {
   props: ['me']
 });
 app.component('cv-subtitle', {
-  template: '<div>{{me.description}}</div>',
+  template: '<div class="text-darkgray">{{me.description}}</div>',
   props: ['me']
 });
 app.component('skill-section', {
@@ -172,10 +172,10 @@ app.component('experience', {
       </div>
       </div>
     `,
-  props: ['exp', 'label', 'link'],
+  props: ['exp', 'label', 'link', 'today'],
   methods: {
     formatDate(value) {
-      return formatYearMonth(value);
+      return formatYearMonth(value) || this.today;
     }
   }
 });
@@ -217,10 +217,16 @@ app.component('project', {
 });
 app.component('language', {
   template: `
-    <div class="flex gap-4 fixed top-4 right-4">
-      <pl-flag @click="$emit('lang', 'pl')" class="cursor-pointer"/>
-      <en-flag @click="$emit('lang', 'en')" class="cursor-pointer"/>
+    <div class="fixed right-0 left-0 top-0 flex gap-4 justify-between bg-white shadow-lg p-4">
+      <div class="flex flex-col">
+        <span v-for="h, index in hints" :key="index">{{h}}</span>
+      </div>
+      <div class="flex gap-4">
+        <pl-flag @click="$emit('lang', 'pl')" class="cursor-pointer"/>
+        <en-flag @click="$emit('lang', 'en')" class="cursor-pointer"/>
+      </div>
     </div>
-  `
+  `,
+  props: ['hints']
 });
 app.mount('#cv');

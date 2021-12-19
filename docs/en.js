@@ -16,7 +16,7 @@ CV.en = {
   skills: {
     label: 'IT Tools',
     list: [{
-      label: 'VUeJS / Bootstrap',
+      label: 'VueJS / Bootstrap / Tailwind',
       value: 5
     },
       {
@@ -70,6 +70,7 @@ CV.en = {
   },
   experience: {
     label: 'Experience',
+    today: 'today',
     responsibilites: 'Responsibilites',
     list: [
       {
@@ -161,5 +162,10 @@ CV.en = {
       'motorsports'
     ]
   },
-  rights: 'I hereby give consent for my personal data to be processed for the purpose of conducting recruitment for the position for which I am applying.'
+  rights: 'I hereby give consent for my personal data to be processed for the purpose of conducting recruitment for the position for which I am applying.',
+  hints: [
+    'You can change the language using flags to the right.',
+    'To save CV as PDF, print the page to PDF.',
+    'Name of companies and universities are links, which lead to their websites.'
+  ]
 };
