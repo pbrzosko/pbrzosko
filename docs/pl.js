@@ -47,6 +47,7 @@ CV.pl = {
   knowledge: {
     label: 'Umiejętności IT',
     list: [
+      'Kierowanie zespołem',
       'IntelliJ / GIT / JIRA / Azure Devops',
       'Praca w zespole jak i samodzielnie',
       'Wzorce projektowe',
@@ -90,7 +91,7 @@ CV.pl = {
         to: new Date(2019, 3),
         company: 'CoCoNet Polska',
         companyLink: 'https://www.coconet.de/',
-        position: 'Area Expert, Scrum Master, Starszy Programista',
+        position: 'Area Expert, Scrum Master / Team Leader, Starszy Programista',
         responsibilities: [
           'Wyznaczanie kierunku rozwoju, doradztwo oraz ocena kodu w obszarze UI',
           'Prowadzenie zespołu utrzymania w obszarze UI',

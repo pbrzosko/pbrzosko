@@ -47,6 +47,7 @@ CV.en = {
   knowledge: {
     label: 'IT Knowledge',
     list: [
+      'Team Leadership',
       'IntelliJ / GIT / JIRA / Azure Devops',
       'Work alone and in teams',
       'Design patterns',
@@ -90,7 +91,7 @@ CV.en = {
         to: new Date(2019, 3),
         company: 'CoCoNet Polska',
         companyLink: 'https://www.coconet.de/',
-        position: 'Area Expert, Scrum Master, Senior Systems Developer',
+        position: 'Area Expert, Scrum Master / Team Leader, Senior Developer',
         responsibilities: [
           'Defining direction of evolution, consulting and code review in UI area',
           'Leadership of maintenance team in UI area',
