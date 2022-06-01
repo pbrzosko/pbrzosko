@@ -83,7 +83,7 @@ app.component('cv-column-right', {
 });
 app.component('cv', {
   template: `
-    <div class="w-[210mm] h-[297mm] p-[12mm] bg-white mx-auto mt-[10em] mb-[3em] shadow-lg text-gray flex flex-col gap-2 print:p-0 print:m-0 print:shadow-none">
+    <div class="w-[230mm] h-[317mm] p-[10mm] bg-white mx-auto mt-[10em] mb-[3em] shadow-lg text-gray flex flex-col gap-2 print:p-0 print:m-0 print:shadow-none">
       <slot/>
     </div>
   `
