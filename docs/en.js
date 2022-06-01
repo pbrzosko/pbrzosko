@@ -15,12 +15,17 @@ CV.en = {
   },
   skills: {
     label: 'IT Tools',
-    list: [{
-      label: 'VueJS / Bootstrap / Tailwind',
-      value: 5
-    },
+    list: [
+      {
+        label: 'VueJS / Bootstrap / Tailwind',
+        value: 5
+      },
       {
         label: 'Angular 12 / Material',
+        value: 3
+      },
+      {
+        label: 'React / Mui',
         value: 3
       },
       {
@@ -34,6 +39,10 @@ CV.en = {
       {
         label: 'NodeJS / ExpressJS / MongoDB',
         value: 3
+      },
+      {
+        label: 'Kotlin',
+        value: 2
       },
       {
         label: 'SQL / Hibernate / Oracle',
@@ -75,8 +84,19 @@ CV.en = {
     responsibilites: 'Responsibilites',
     list: [
       {
-        from: new Date(2019, 3),
+        from: new Date(2022, 3),
         to: null,
+        company: 'Allegro',
+        companyLink: 'http://allegro.pl/',
+        position: 'Senior Developer',
+        responsibilities: [
+          'Warehouse management system implementation with Kotlin, Spring and MongoDB',
+          'Implementation of SPA application in React for warehouse configuration and management'
+        ]
+      },
+      {
+        from: new Date(2019, 3),
+        to: new Date(2022, 5),
         company: 'SDC A/S Polska',
         companyLink: 'https://www.sdc.dk/',
         position: 'Senior Developer',
