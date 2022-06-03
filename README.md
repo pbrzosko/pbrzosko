@@ -1,7 +1,7 @@
 Hi, :wave:
 
 my name is **Przemek Brzosko** and I am a **Java** and **Java Script** developer from Poland.
-I started my career as a Java developer, but I quickly specialized myslef in **UI** development, which is something I like doing the most. 
+I started my career as a Java developer, but I quickly specialized myself in **UI** development, which is something I like doing the most. 
 
 ### Career
 
