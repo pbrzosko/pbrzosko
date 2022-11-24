@@ -135,18 +135,14 @@ CV.en = {
         to: new Date(2012, 4),
         company: 'IMPAQ Group',
         companyLink: 'http://www.impaq.com.pl/',
-        position: 'Developer',
-        responsibilities: [
-        ]
+        position: 'Developer'
       },
       {
         from: new Date(2005, 9),
         to: new Date(2011, 9),
         company: 'Pentacomp Systemy Informatyczne',
         companyLink: 'https://www.pentacomp.pl/',
-        position: 'Developer',
-        responsibilities: [
-        ]
+        position: 'Developer'
       }
     ]
   },

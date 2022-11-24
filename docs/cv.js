@@ -166,7 +166,7 @@ app.component('experience', {
       <div class="w-4/5 flex flex-col">
         <a class="text-xl font-bold text-darkgray" :href="exp.companyLink" target="_blank">{{ exp.company }}</a>
         <span class="font-italic">{{ exp.position }}</span>
-        <ul class="list-disc"><span class="font-bold text-darkgray">{{label}}:</span>
+        <ul class="list-disc" v-if="exp.responsibilities"><span class="font-bold text-darkgray">{{label}}:</span>
           <li class="ml-5" v-for="r,index in exp.responsibilities" :key="index">{{ r }}</li>
         </ul>
       </div>

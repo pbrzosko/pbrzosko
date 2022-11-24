@@ -135,22 +135,14 @@ CV.pl = {
         to: new Date(2012, 4),
         company: 'IMPAQ Group',
         companyLink: 'http://www.impaq.com.pl/',
-        position: 'Programista',
-        responsibilities: [
-          'Wdrożenie i implementacja systemu rozliczeń użytkowników Pre-Paid dla operatora telefonii komórkowej'
-        ]
+        position: 'Programista'
       },
       {
         from: new Date(2005, 9),
         to: new Date(2011, 9),
         company: 'Pentacomp Systemy Informatyczne',
         companyLink: 'https://www.pentacomp.pl/',
-        position: 'Programista',
-        responsibilities: [
-          'Implementacja systemu do obsługi produktów sprzedażowych dla firmy ubezpieczeniowej',
-          'Rozwój oraz utrzymanie systemu do obsługi magazynu operatora telekomunikacyjnego',
-          'Modyfikacja pod klienta i wdrożenie systemu Business Intelligence dla operatora telekomunikacyjnego'
-        ]
+        position: 'Programista'
       }
     ]
   },
