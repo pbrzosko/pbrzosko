@@ -21,20 +21,24 @@ CV.en = {
         value: 5
       },
       {
-        label: 'Angular 12 / Material',
-        value: 3
-      },
-      {
         label: 'React / Mui',
         value: 4
+      },
+      {
+        label: 'Angular 12 / Material',
+        value: 3
       },
       {
         label: 'HTML / CSS / JavaScript',
         value: 5
       },
       {
+        label: 'Selenium / Cypress / Testing Framework',
+        value: 4
+      },
+      {
         label: 'Java / Spring / JSF',
-        value: 5
+        value: 4
       },
       {
         label: 'NodeJS / ExpressJS / MongoDB',
@@ -42,10 +46,6 @@ CV.en = {
       },
       {
         label: 'Kotlin',
-        value: 2
-      },
-      {
-        label: 'SQL / Hibernate / Oracle',
         value: 2
       },
       {
