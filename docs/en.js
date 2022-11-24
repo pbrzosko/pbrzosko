@@ -26,7 +26,7 @@ CV.en = {
       },
       {
         label: 'React / Mui',
-        value: 3
+        value: 4
       },
       {
         label: 'HTML / CSS / JavaScript',
@@ -84,8 +84,20 @@ CV.en = {
     responsibilites: 'Responsibilites',
     list: [
       {
-        from: new Date(2022, 3),
+        from: new Date(2022, 8),
         to: null,
+        company: 'Novo Nordisk',
+        companyLink: 'https://www.novonordisk.com/',
+        position: 'Senior Frontend Developer',
+        responsibilities: [
+          'Setup micro-frontend system architecture',
+          'Implementation of UI components library in Vue based on provided design',
+          'Implementation of SPA application in Vue for experiments management'
+        ]
+      },
+      {
+        from: new Date(2022, 3),
+        to: new Date(2022, 8),
         company: 'Allegro',
         companyLink: 'http://allegro.pl/',
         position: 'Senior Developer',
@@ -125,7 +137,6 @@ CV.en = {
         companyLink: 'http://www.impaq.com.pl/',
         position: 'Developer',
         responsibilities: [
-          'Implementation and installation of billing system for Prepaid users of a mobile operator'
         ]
       },
       {
@@ -135,9 +146,6 @@ CV.en = {
         companyLink: 'https://www.pentacomp.pl/',
         position: 'Developer',
         responsibilities: [
-          'Implementation of a system to manage sales products for insurance company',
-          'Development and maintenance of a warehouse system for a mobile operator',
-          'Customization and installation of a Business Intelligence system for a mobile operator'
         ]
       }
     ]

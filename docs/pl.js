@@ -26,7 +26,7 @@ CV.pl = {
       },
       {
         label: 'React / Mui',
-        value: 3
+        value: 4
       },
       {
         label: 'HTML / CSS / JavaScript',
@@ -84,8 +84,20 @@ CV.pl = {
     responsibilites: 'Zakres obowiązków',
     list: [
       {
-        from: new Date(2022, 3),
+        from: new Date(2022, 8),
         to: null,
+        company: 'Novo Nordisk',
+        companyLink: 'https://www.novonordisk.com/',
+        position: 'Starszy Programista Frontend',
+        responsibilities: [
+          'Zdefiniowanie mikro-frontendowej architektury systemu',
+          'Implementacja biblioteki komponentów UI w Vue na podstawie dostarczonego projektu',
+          'Implementacja aplikacji SPA w Vue do zarządzania eskperymentami'
+        ]
+      },
+      {
+        from: new Date(2022, 3),
+        to: new Date(2022, 8),
         company: 'Allegro',
         companyLink: 'http://allegro.pl/',
         position: 'Starszy Programista',
